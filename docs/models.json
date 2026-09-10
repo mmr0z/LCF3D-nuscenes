@@ -1,0 +1,23 @@
+[
+  {
+    "file": "camera.pth",
+    "model": "detector2d",
+    "source": "work_dirs/faster_rcnn_lcf3d_nuscenes_camera_nuimages_ft6_bs10/best_coco_bbox_mAP_iter_85134.pth",
+    "size_bytes": 187425927,
+    "sha256": "c263b7f33be08a83c43d75b346628a881cd5737fa7e198a85078eed4dd443574"
+  },
+  {
+    "file": "centerpoint.pth",
+    "model": "detector3d",
+    "source": "work_dirs/centerpoint_nuscenes_canonical/epoch_20.pth",
+    "size_bytes": 203837951,
+    "sha256": "131f2cd12d704b97911da133796f918feed032933745ed79e14614873dddb81f"
+  },
+  {
+    "file": "frustum.pth",
+    "model": "frustum_detector",
+    "source": "work_dirs/frustum_pointnet_lcf3d_nuscenes/best_IoU_3D_epoch_98.pth",
+    "size_bytes": 64535399,
+    "sha256": "b0454f1aad04c3ced13ca8104b4eec145436d463e9457d58c0422e5976eafcce"
+  }
+]

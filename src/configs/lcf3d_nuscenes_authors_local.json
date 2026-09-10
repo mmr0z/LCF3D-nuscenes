@@ -1,0 +1,110 @@
+{
+    "num_views": 6,
+    "lidar_only": false,
+
+    "score_thr_2d": [0.4, 0.4, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4],
+    "score_thr_3d": [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+    "bbox_matching_iou_thr": 0.5,
+    "bbox_matching_mode": "iou",
+    "detection_recovery_iou_thr": 0.3,
+    "min_pts_frustum": 10,
+
+    "use_clustering": true,
+    "clustering_method": "connected_components",
+    "use_cliques": false,
+    "cluster_bev_iou_thr": 0.5,
+    "cluster_bev_iou_thr_cc": 0.5,
+    "cluster_bev_iou_thr_clique": 0.3,
+    "cluster_iou_thr": 0.1,
+    "cluster_iou_thr_cc": 0.1,
+    "cluster_iou_thr_clique": 0.1,
+
+    "align_frustum": true,
+    "use_gaussian_likelihoods": true,
+    "use_dims_frustum": [0, 1, 2, 3],
+
+    "use_detection_recovery": true,
+    "detection_recovery": {
+        "use_detection_recovery": true,
+        "align_frustum": true,
+        "use_gaussian_likelihoods": true,
+        "use_dims_frustum": [0, 1, 2, 3],
+        "enlarge_factor": 0.05,
+        "valid_labels": [8],
+        "lidar_iou_thr": 0.1,
+        "score_thr": 0.0
+    },
+
+    "use_label_fusion": false,
+    "use_score_fusion": false,
+    "use_final_nms": true,
+    "keep_oov_bboxes": false,
+    "keep_unmatched_3d": true,
+    "class_prior": [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+
+    "num_classes": 10,
+    "classes": [
+        "car",
+        "truck",
+        "trailer",
+        "bus",
+        "construction_vehicle",
+        "bicycle",
+        "motorcycle",
+        "pedestrian",
+        "traffic_cone",
+        "barrier"
+    ],
+
+    "valid_2d_classes": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "img_label_mapping": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+
+    "valid_labels_3d": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "class_mapping_3d": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+
+    "final_nms_cfg": {
+        "thresh": 0.3,
+        "pre_max_size": 100,
+        "post_max_size": 100
+    },
+
+    "visualization_cfg": {
+        "colors": [
+            [178, 255, 102],
+            [255, 102, 178],
+            [153, 255, 255],
+            [255, 178, 102],
+            [102, 178, 255],
+            [255, 102, 102],
+            [102, 255, 178],
+            [178, 102, 255],
+            [255, 255, 102],
+            [102, 102, 255]
+        ],
+        "fill_bboxes_2d": true,
+        "alpha": 50
+    },
+
+    "detector2d": {
+        "model_type": "mmdet",
+        "nms_thr": 0.5,
+        "nms_type": "nms",
+        "nms_pre": null,
+        "max_num": null,
+        "cfg_path": "/home/workstation/LCF3D/src/model_configs/nuscenes/faster_rcnn_lcf3d_nuscenes_camera.py",
+        "checkpoint_path": "/home/workstation/LCF3D/work_dirs/faster_rcnn_lcf3d_nuscenes_camera_nuimages_ft6_bs10/best_coco_bbox_mAP_iter_85134.pth"
+    },
+
+    "detector3d": {
+        "nms_thr": 0.01,
+        "nms_pre": 100,
+        "max_num": 50,
+        "cfg_path": "/home/workstation/LCF3D/src/model_configs/nuscenes/centerpoint_voxel01_lcf3d_nuscenes_clean.py",
+        "checkpoint_path": "/home/workstation/LCF3D/work_dirs/centerpoint_nuscenes_canonical/epoch_20.pth"
+    },
+
+    "frustum_detector": {
+        "cfg_path": "/home/workstation/LCF3D/src/model_configs/nuscenes/frustum_pointnet_lcf3d_nuscenes.py",
+        "checkpoint_path": "/home/workstation/LCF3D/work_dirs/frustum_pointnet_lcf3d_nuscenes/best_IoU_3D_epoch_98.pth"
+    }
+}
